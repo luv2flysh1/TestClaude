@@ -16,13 +16,8 @@ jobs:
 
       - name: Check code formatting
         run: |
-          FAILED=0
-          for file in $(find src include tests -name '*.cpp' -o -name '*.h'); do
-            if ! diff -u "$file" <(clang-format "$file"); then
-              FAILED=1
-            fi
-          done
-          exit $FAILED
+          find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i
+          git diff --exit-code || (echo "Code is not formatted. Run: find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i" && exit 1)
 
   lint:
     runs-on: ubuntu-latest
