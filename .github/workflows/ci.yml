@@ -18,6 +18,20 @@ jobs:
         run: |
           find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format --dry-run --Werror
 
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+      - name: Run clang-tidy
+        run: |
+          clang-tidy -p build src/*.cpp include/*.h
+
   build:
     runs-on: ubuntu-latest
 
