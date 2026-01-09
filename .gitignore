@@ -1,0 +1,19 @@
+# Build directories
+build/
+cmake-build-*/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Compiled objects
+*.o
+*.obj
+*.so
+*.a
+
+# Executables
+*.out
+TestClaude
