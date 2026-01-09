@@ -17,3 +17,6 @@ cmake-build-*/
 # Executables
 *.out
 TestClaude
+
+# Documentation
+docs/

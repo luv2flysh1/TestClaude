@@ -1,0 +1,17 @@
+PROJECT_NAME           = "TestClaude"
+PROJECT_NUMBER         = 1.0.0
+PROJECT_BRIEF          = "A simple C++ greeting application"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = src include README.md
+FILE_PATTERNS          = *.cpp *.h *.md
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = html
+USE_MDFILE_AS_MAINPAGE = README.md
+HAVE_DOT               = NO
+QUIET                  = YES
+WARNINGS               = YES
