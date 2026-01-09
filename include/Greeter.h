@@ -4,13 +4,13 @@
 #include <string>
 
 class Greeter {
-public:
-    Greeter(const std::string& name);
+  public:
+    Greeter(const std::string &name);
     std::string greet() const;
-    void setName(const std::string& name);
+    void setName(const std::string &name);
     std::string getName() const;
 
-private:
+  private:
     std::string m_name;
 };
 
