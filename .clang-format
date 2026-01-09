@@ -10,5 +10,4 @@ AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
 BreakBeforeBraces: Attach
 IndentCaseLabels: true
-SortIncludes: true
-IncludeBlocks: Regroup
+SortIncludes: false
