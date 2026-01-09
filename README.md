@@ -1,7 +1,7 @@
 # TestClaude
 
-[![CI](https://github.com/USERNAME/TestClaude/actions/workflows/ci.yml/badge.svg)](https://github.com/USERNAME/TestClaude/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/USERNAME/TestClaude/branch/main/graph/badge.svg)](https://codecov.io/gh/USERNAME/TestClaude)
+[![CI](https://github.com/luv2flysh1/TestClaude/actions/workflows/ci.yml/badge.svg)](https://github.com/luv2flysh1/TestClaude/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/luv2flysh1/TestClaude/branch/main/graph/badge.svg)](https://codecov.io/gh/luv2flysh1/TestClaude)
 
 A simple C++ greeting application for Linux.
 
