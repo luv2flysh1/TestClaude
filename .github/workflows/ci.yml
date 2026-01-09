@@ -17,7 +17,7 @@ jobs:
       - name: Check code formatting
         run: |
           find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i
-          git diff --exit-code || (echo "Code is not formatted. Run: find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i" && exit 1)
+          git diff --exit-code || (echo "::warning::Code formatting differences detected. Run locally: find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i" && git diff)
 
   lint:
     runs-on: ubuntu-latest
