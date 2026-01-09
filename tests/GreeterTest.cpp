@@ -1,5 +1,6 @@
-#include <gtest/gtest.h>
 #include "Greeter.h"
+
+#include <gtest/gtest.h>
 
 TEST(GreeterTest, ConstructorSetsName) {
     Greeter greeter("Alice");

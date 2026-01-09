@@ -7,6 +7,17 @@ on:
     branches: [main, master]
 
 jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check code formatting
+        run: |
+          find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format --dry-run --Werror
+
   build:
     runs-on: ubuntu-latest
 

@@ -1,6 +1,7 @@
+#include "Greeter.h"
+
 #include <iostream>
 #include <string>
-#include "Greeter.h"
 
 int main(int argc, char* argv[]) {
     std::string name;
