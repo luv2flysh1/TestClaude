@@ -9,6 +9,27 @@ on:
 jobs:
   format:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Format code
+        run: |
+          find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i
+
+      - name: Commit formatting changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet || (git add -A && git commit -m "style: auto-format code with clang-format" && git push)
+
+  format-check:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
 
     steps:
       - name: Checkout repository
@@ -17,7 +38,7 @@ jobs:
       - name: Check code formatting
         run: |
           find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i
-          git diff --exit-code || (echo "::warning::Code formatting differences detected. Run locally: find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i" && git diff)
+          git diff --exit-code || (echo "::error::Code is not formatted. Please run: find src include tests -name '*.cpp' -o -name '*.h' | xargs clang-format -i" && git diff && exit 1)
 
   lint:
     runs-on: ubuntu-latest
